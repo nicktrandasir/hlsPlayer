@@ -31,14 +31,17 @@ export default function App() {
                 video.play()
             }
         });
-
     }, [inputData])
 
-    const onPlay = (event) => {
+    const onPlay = async (event) => {
         if (inputData.length > 0) {
             event.preventDefault();
-            video.play()
 
+            if (hls.levels.length === 0) {
+                alert("Нерабочая ссылка?!")
+            } else {
+                video.play()
+            }
         }
     }
 
